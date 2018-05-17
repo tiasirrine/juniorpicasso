@@ -25,7 +25,7 @@ $('#sign-up-btn').click(function(e) {
       }).then(
         function(res) {
             console.log('res', res);
-          console.log("created new cat");
+         
           // TODO: send them to home page
       }
     );
@@ -54,8 +54,7 @@ $('#login-btn').click(function(e) {
         function(res) {
             
             console.log('login res', res);
-            console.log("logged in new cat");
-
+            
             if (res.length === 0) {
                 alert('User not found or incorrect password!');
             } else {
@@ -63,8 +62,10 @@ $('#login-btn').click(function(e) {
                 var firstName = user.first_name;
                 var lastName = user.last_name;
                 alert(`Welcome back ${firstName} ${lastName}!`);
+                
             }
           // TODO: send them to home page
+          res.render("/index.html");         
       }
     );
 

@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 
 var connection = require("./config/connection.js");
 
@@ -45,8 +46,9 @@ app.post("/signup", function(req, res) {
   var { firstName, lastName, email, password } = req.body;
   //var email = req.body.email;
   //var password = req.body.password;
+  var hash = bcrypt.hashSync(password, 10);
 
-  var queryString = `INSERT INTO users (first_name, last_name, email, password) VALUES ("${firstName}", "${lastName}", "${email}", "${password}");`;
+  var queryString = `INSERT INTO users (first_name, last_name, email, password) VALUES ("${firstName}", "${lastName}", "${email}", "${hash}");`;
 
   console.log(queryString);
 
@@ -66,7 +68,9 @@ app.post("/login", function(req, res) {
   //var email = req.body.email;
   //var password = req.body.password;
 
-  var queryString = `SELECT * FROM users WHERE email = "${email}" and password = "${password}"`;
+  var queryString = `SELECT * FROM users WHERE email = "${email}"`;
+
+
 
   console.log(queryString);
 
@@ -76,7 +80,22 @@ app.post("/login", function(req, res) {
     }
     console.log('result', result);
     //return result;
-    res.json(result);
+    bcrypt.compare(password, result[0].password, function(err, match){
+     console.log(password, result[0].password);
+
+      if (match) {
+        // Passwords match
+        console.log("It's a match!!");
+        res.send(result);
+        res.render("/index.html");
+    } else {
+        // Passwords don't match
+        console.log("Wrong password");
+    }
+    });
+
+
+   
   });
 });
 

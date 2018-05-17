@@ -8,6 +8,7 @@ CREATE TABLE users (
   first_name VARCHAR(30) NULL,
   last_name VARCHAR(30) NULL,
   email VARCHAR(40) NULL,
-  password VARCHAR(20) NULL,
+  password VARCHAR(100) NULL,
   PRIMARY KEY (id)
 );
+
