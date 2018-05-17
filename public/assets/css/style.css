@@ -1,3 +1,40 @@
-.logo {
-  margin: 50%;
+body {
+  font-family: "Indie Flower", cursive;
+}
+#slide1 {
+  background-image: url(../images/pic1.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#slide2 {
+  background-image: url(../images/pic2.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#slide3 {
+  background-image: url(../images/pic3.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#slide4 {
+  background-image: url(../images/pic4.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+.login {
+  width: 600px;
+  margin-left: 300px;
 }
