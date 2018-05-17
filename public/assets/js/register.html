@@ -15,7 +15,7 @@
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <title>Welcome Artists!</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -58,6 +58,7 @@
             <li>
                 <a href="/how-it-works">How It Works</a>
             </li>
+
             <li>
                 <a href="/search">Learn</a>
             </li>
@@ -78,66 +79,48 @@
                 </div>
             </div>
         </div>
-        <!--M CAROUSEL-->
-        <div class="carousel carousel-slider center">
-            <div class="carousel-fixed-item center">
-
-            </div>
-            <div class="carousel-item red white-text" id="slide1" href="#one!">
-
-            </div>
-            <div class="carousel-item amber white-text" id="slide2" href="#two!">
-
-            </div>
-            <div class="carousel-item green white-text" id="slide3" href="#three!">
-
-            </div>
-            <div class="carousel-item blue white-text" id="slide4" href="#four!">
-
-            </div>
-        </div>
-        <div class="section">
-
-            <!--   Icon Section   -->
+        <div>
             <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center" style="color:#ee6e73" ;>
-                            <i class="large material-icons">brush</i>
-                        </h2>
-                        <h5 class="center">Get Creative</h5>
-
-                        <p class="light">By signing up for our monthly subscription, you are promoting your child's creativity and growth!
-                            Be the force that encourages their little minds to grow!</p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center" style="color:#ee6e73" ;>
-                            <i class="large material-icons">bubble_chart</i>
-                        </h2>
-                        <h5 class="center">Get Involved</h5>
-
-                        <p class="light">We get it, life gets busy, and sometimes in the way of finding daily connections with our children.
-                            With our subscription, it makes it easy to teach your child about history, culture,and art in
-                            a fun way! </p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center" style="color:#ee6e73" ;>
-                            <i class="large material-icons">child_care</i>
-                        </h2>
-                        <h5 class="center">Get Childish</h5>
-
-                        <p class="light">Watch your child grow each month! Get on their level. Get childish. Get Junior Picasso!</p>
-                    </div>
-                </div>
+                <h2 class="center-align">Register Here!</h2>
+                <h5 class="center-align">Sign up to receive our monthly art supply shipments.</h4>
             </div>
 
         </div>
+        <!--REGISTER FORM-->
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" style="color:#ee6e73" ;>
+                        <label for="first_name" style="color:#ee6e73" ;>First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--FOOTER-->
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
