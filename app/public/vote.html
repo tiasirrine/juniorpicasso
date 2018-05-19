@@ -11,11 +11,11 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Indie+Flower" rel="stylesheet">
     <!-- CUSTOM CSS-->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <title>Login</title>
+    <title>Vote</title>
 </head>
 
 <body>
@@ -30,19 +30,19 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a href="/home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/how-it-works">How It Works</a>
-                    </li>
-                    <li>
-                        <a href="/register">Register</a>
                     </li>
                     <li>
                         <a href="/search">Learn</a>
                     </li>
                     <li>
                         <a href="/vote">Vote!</a>
+                    </li>
+                    <li>
+                        <a href="/login">Register | Login</a>
                     </li>
                 </ul>
             </div>
@@ -52,13 +52,10 @@
 
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="/how-it-works">How It Works</a>
-            </li>
-            <li>
-                <a href="/register">Register</a>
             </li>
             <li>
                 <a href="/search">Learn</a>
@@ -66,44 +63,27 @@
             <li>
                 <a href="/vote">Vote!</a>
             </li>
+            <li>
+                <a href="/login">Register | Login</a>
+            </li>
         </ul>
         <!--Logo Banner-->
         <div class="banner">
             <div class="row">
                 <div class="col s11 pull-s1 m11 pull-m1 l11 push-l1">
                     <a class="logo">
-                        <img src="../images/logo.png">
+                        <img src="./images/logo.png">
                     </a>
                 </div>
             </div>
         </div>
-        <!--LOGIN FIELD-->
-        <div class="login">
-            <h4 class="center-align">Returning User Sign In</h4>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <h4 class="center-align">Not a Member?
-                <a href="/register">Register</a>
-            </h4>
-        </div>
-
         <!--FOOTER-->
-        <footer class="page-footer ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col l6 s12 ">
-                        <h5 class="white-text ">A Message From Our Sponsors</h5>
-                        <p class="grey-text text-lighten-4 ">"Junior Picasso 's is a fun, innovate way to connect with your children and promote creativity!"</p>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">A Message From Our Sponsors</h5>
+                        <p class="grey-text text-lighten-4">"Junior Picasso's is a fun, innovate way to connect with your children and promote creativity!"</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Sponsor Sites</h5>
@@ -143,7 +123,7 @@
 
 
     <script type="text/javascript">
-        $('.carousel.carousel-slider ').carousel({
+        $('.carousel.carousel-slider').carousel({
             fullWidth: true,
             indicators: true
         });

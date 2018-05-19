@@ -11,11 +11,11 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Indie+Flower" rel="stylesheet">
     <!-- CUSTOM CSS-->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <title>Register</title>
+    <title>Learn</title>
 </head>
 
 <body>
@@ -30,12 +30,11 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a href="/home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/how-it-works">How It Works</a>
                     </li>
-
                     <li>
                         <a href="/search">Learn</a>
                     </li>
@@ -53,12 +52,11 @@
 
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="/how-it-works">How It Works</a>
             </li>
-
             <li>
                 <a href="/search">Learn</a>
             </li>
@@ -74,52 +72,36 @@
             <div class="row">
                 <div class="col s11 pull-s1 m11 pull-m1 l11 push-l1">
                     <a class="logo">
-                        <img src="../images/logo.png">
+                        <img src="./images/logo.png">
                     </a>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="row">
-                <h2 class="center-align">Register Here!</h2>
-                <h5 class="center-align">Sign up to receive our monthly art supply shipments.</h4>
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">
+                    Let's Learn Together!
+                </h2>
+                <h5 class="center-align">
+                    Search for your little one's favorite artist!
+                </h5>
             </div>
-
         </div>
-        <!--REGISTER FORM-->
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate" style="color:#ee6e73" ;>
-                        <label for="first_name" style="color:#ee6e73" ;>First Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Address</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <textarea id="artist-input" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Find My Artist</label>
+                        <a class="waves-effect waves-light btn-large">
+                            <i class="material-icons right">brush</i>Search</a>
                     </div>
                 </div>
             </form>
-        </div>
+            <div class="results row"></div>
 
+
+        </div>
         <!--FOOTER-->
         <footer class="page-footer">
             <div class="container">
