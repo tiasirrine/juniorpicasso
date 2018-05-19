@@ -39,6 +39,18 @@ app.get("/signup", function(req, res) {
   res.render("signup");
 });
 
+app.get("/search", function(req, res) {
+  res.render("index");
+});
+
+app.get("/about", function(req, res) {
+  res.render("index");
+});
+
+app.get("/vote", function(req, res) {
+  res.render("index");
+});
+
 app.post("/signup", function(req, res) {
   console.log('req.body', req.body); // { email: 'blah', password: 'ho noora!' }
 
