@@ -24,5 +24,37 @@ module.exports = function(app) {
       password: hash
     });
   });
-
+  app.post("/login", function(req, res) {
+    console.log('req.body', req.body); // { email: 'blah', password: 'ho noora!' }
+  
+    // object destructuring
+    var { email, password } = req.body;
+    //var email = req.body.email;
+    //var password = req.body.password;
+  
+    var queryString = `SELECT * FROM users WHERE email = "${email}"`;
+    console.log(queryString);
+  
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log('result', result);
+      //return result;
+      bcrypt.compare(password, result[0].password, function(err, match){
+       console.log(password, result[0].password);
+  
+        if (match) {
+          // Passwords match
+          console.log("It's a match!!");
+          res.send(result);
+        
+      } else {
+          // Passwords don't match
+          console.log("Wrong password");
+      }
+      });
+     
+    });
+  });
 };
