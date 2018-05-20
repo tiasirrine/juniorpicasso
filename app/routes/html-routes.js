@@ -4,11 +4,8 @@
 
 // Dependencies
 // =============================================================
+var multer = require("multer");
 var path = require("path");
-const multer = require("multer");
-const upload = multer({
-  dest: "uploads/" // this saves your file into a directory called "uploads"
-});
 
 // Routes
 // =============================================================
@@ -44,7 +41,41 @@ module.exports = function(app) {
   app.get("/vote", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/vote.html"));
   });
-  app.post("/vote", upload.single("file-to-upload"), (req, res) => {
-    res.redirect("/vote");
+  var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+      callback(null, __dirname + "/uploads");
+    },
+    filename: function(req, file, callback) {
+      callback(
+        null,
+        file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      );
+    }
+  });
+
+  app.post("/vote", function(req, res) {
+    var upload = multer({
+      storage: storage,
+      fileFilter: function(req, file, callback) {
+        var ext = path.extname(file.originalname);
+        if (
+          ext !== ".png" &&
+          ext !== ".jpg" &&
+          ext !== ".gif" &&
+          ext !== ".jpeg"
+        ) {
+          return callback(res.end("Only images are allowed"), null);
+        }
+        callback(null, true);
+      }
+    }).single("file-to-upload");
+    upload(req, res, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("success");
+        res.end("File is uploaded");
+      }
+    });
   });
 };
