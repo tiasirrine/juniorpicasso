@@ -36,5 +36,11 @@ main {
 }
 .login {
   width: 600px;
-  margin-left: 300px;
+  margin-left: 200px;
+}
+#wrapper2 {
+  background-color: rgb(224, 202, 103);
+}
+#wrapper {
+  background-color: #fff176;
 }
