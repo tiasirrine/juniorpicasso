@@ -99,23 +99,58 @@
                 </div>
             </form>
             <div class="results row"></div>
+            <div class="container">
+                <h1>Artist Search</h1>
 
-            <h2>Artist Search</h2>
+                <!-- We'll be dumping our JSON contents in here -->
+                <div id="artist-view"></div>
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-            
-            <ul id="myUL">
-              <li><a href="images/claude monet.JPG">Claude Monet</a></li>
-              <li><a href="images/frida kahlo.JPG">Frida Kahlo</a></li>
-            
-              <li><a href="images/leonardo da vinci.JPG">Leonardo da Vinci</a></li>
-              <li><a href="images/michelangelo.JPG">Michelangelo</a></li>
-            
-              <li><a href="images/picasso.JPG">Picasso</a></li>
-              <li><a href="images/rembrandt.JPG">Rembrandt</a></li>
-              <li><a href="images/van gogh.JPG">Van Gogh</a></li>
-            </ul>    
- 
+                <!-- This form will be where users input data about the artist -->
+                <form id="artist-form">
+                    <label for="artist-input">Artist Search</label>
+                    <input type="text" id="artist-input">
+                    <br>
+                    <!-- This button will trigger our AJAX call -->
+                    <input id="find-artist" type="submit" value="Artist Search">
+                </form>
+
+                <img id="artist-image">
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+                <script type="text/javascript">
+
+                    // This .on("click") function will trigger the AJAX Call
+                    $("#find-artist").on("click", function (event) {
+                        console.log("click");
+
+                        // event.preventDefault() can be used to prevent an event's default behavior.
+                        // Here, it prevents the submit button from trying to submit a form when clicked
+                        event.preventDefault();
+
+                        // Here we grab the text from the input box
+                        var artist = $("#artist-input").val();
+
+
+                        var queryURL = " http://api.thewalters.org/v1/objects?apikey=1N0nWnWjc1Jq9IKHe6jiR31p8XCQTRftf4a9At6y2tccC2ZdpxgM6K7xMBfya5FA&creator='artist'";
+
+
+
+                        $.ajax({
+                            url: queryURL,
+                            method: "GET"
+                        }).then(function (response) {
+                            $("#artist-view").text(JSON.stringify(response));
+                            $("#artist-image").attr(response);
+                            console.log(response);
+                        });
+                    });
+
+
+                </script>
+
+            </div>
             <!--FOOTER-->
             <footer class="page-footer">
                 <div class="container">
@@ -166,23 +201,7 @@
                 fullWidth: true,
                 indicators: true
             });
-          
-   function myFunction() {
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-            
-                    }
-                }
-            }
+
         </script>
 
 </body>
