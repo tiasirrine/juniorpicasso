@@ -12,11 +12,11 @@ $("#add-btn").on("click", function(event) {
     };
 
   // Send an AJAX POST-request with jQuery
-  $.get("/api/login", oldMember)
+  $.post("/api/login", oldMember)
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
-      console.log(data);
+      window.location.replace("/vote?email=" + data)
     });
 
   // Empty each input box by replacing the value with an empty string

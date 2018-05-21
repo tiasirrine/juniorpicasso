@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 var userpw = 'someSillyPW1234!'
 // Function to encrypt user password before storing in db
 bcrypt.hash(userpw, 10, function (err, hash) {
