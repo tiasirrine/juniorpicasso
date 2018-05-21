@@ -1,10 +1,5 @@
-
-
-
-
-
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -97,8 +92,8 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate" style="color:#ee6e73" ;>
-                        <label for="first_name" style="color:#ee6e73" ;>First Name</label>
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="last_name" type="text" class="validate">
@@ -123,9 +118,20 @@
                         <label for="password">Password</label>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-book"></span> Submit</button>
-                </div>
+                        <button type="submit" class="btn btn-primary btn-md modal-trigger" id="add-btn" data-target="modal1">
+                            <span class="fa fa-book"></span> Submit</button>
+                    </div>
             </form>
+            </div>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Thank You!</h4>
+                    <p>Please continue to login page.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/login" class="modal-close waves-effect waves-green btn-flat">Continue</a>
+                </div>
             </div>
         </div>
         <!--FOOTER-->
@@ -179,9 +185,12 @@
             indicators: true
         });
 
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
     </script>
 
-<script src="js/register.js" type="text/javascript"></script>
+    <script src="js/register.js" type="text/javascript"></script>
 
 </body>
 

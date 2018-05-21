@@ -4,13 +4,12 @@
 
 // Dependencies
 // =============================================================
+var multer = require("multer");
 var path = require("path");
-
 
 // Routes
 // =============================================================
 module.exports = function(app) {
-
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
@@ -38,9 +37,45 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
-    // long route loads the long.html page, where long books in the db are displayed
-    app.get("/vote", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/vote.html"));
-    });
+  // long route loads the long.html page, where long books in the db are displayed
+  app.get("/vote", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/vote.html"));
+  });
+  var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+      callback(null, __dirname + "/uploads");
+    },
+    filename: function(req, file, callback) {
+      callback(
+        null,
+        file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      );
+    }
+  });
 
+  app.post("/vote", function(req, res) {
+    var upload = multer({
+      storage: storage,
+      fileFilter: function(req, file, callback) {
+        var ext = path.extname(file.originalname);
+        if (
+          ext !== ".png" &&
+          ext !== ".jpg" &&
+          ext !== ".gif" &&
+          ext !== ".jpeg"
+        ) {
+          return callback(res.end("Only images are allowed"), null);
+        }
+        callback(null, true);
+      }
+    }).single("file-to-upload");
+    upload(req, res, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("success");
+        res.end("File is uploaded");
+      }
+    });
+  });
 };
