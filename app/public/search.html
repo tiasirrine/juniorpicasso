@@ -77,6 +77,7 @@
                 </div>
             </div>
         </div>
+        <!--search-->
         <div class="row">
             <div class="col s12">
                 <h2 class="center-align">
@@ -91,118 +92,76 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="artist-input" class="materialize-textarea"></textarea>
+                        <!-- <textarea id="artist-input" class="materialize-textarea"></textarea>
                         <label for="textarea1">Find My Artist</label>
                         <a class="waves-effect waves-light btn-large">
-                            <i class="material-icons right">brush</i>Search</a>
+                            <i class="material-icons right">brush</i>Search</a> -->
                     </div>
                 </div>
             </form>
             <div class="results row"></div>
-            <div class="container">
-                <h1>Artist Search</h1>
+            <h2>Artist Search</h2>
+            <form action="http://google.com/images" target="_blank">
+                <input name="q">
+                <input type="submit" class="btn btn-primary btn-md red lighten-2" style="font-family: Indie Flower">
+            </form>
 
-                <!-- We'll be dumping our JSON contents in here -->
-                <div id="artist-view"></div>
-
-                <!-- This form will be where users input data about the artist -->
-                <form id="artist-form">
-                    <label for="artist-input">Artist Search</label>
-                    <input type="text" id="artist-input">
-                    <br>
-                    <!-- This button will trigger our AJAX call -->
-                    <input id="find-artist" type="submit" value="Artist Search">
-                </form>
-
-                <img id="artist-image">
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-                <script type="text/javascript">
-
-                    // This .on("click") function will trigger the AJAX Call
-                    $("#find-artist").on("click", function (event) {
-                        console.log("click");
-
-                        // event.preventDefault() can be used to prevent an event's default behavior.
-                        // Here, it prevents the submit button from trying to submit a form when clicked
-                        event.preventDefault();
-
-                        // Here we grab the text from the input box
-                        var artist = $("#artist-input").val();
-
-
-                        var queryURL = " http://api.thewalters.org/v1/objects?apikey=1N0nWnWjc1Jq9IKHe6jiR31p8XCQTRftf4a9At6y2tccC2ZdpxgM6K7xMBfya5FA&creator='artist'";
-
-
-
-                        $.ajax({
-                            url: queryURL,
-                            method: "GET"
-                        }).then(function (response) {
-                            $("#artist-view").text(JSON.stringify(response));
-                            $("#artist-image").attr(response);
-                            console.log(response);
-                        });
-                    });
-
-
-                </script>
-
-            </div>
-            <!--FOOTER-->
-            <footer class="page-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">A Message From Our Sponsors</h5>
-                            <p class="grey-text text-lighten-4">"Junior Picasso's is a fun, innovate way to connect with your children and promote creativity!"</p>
-                        </div>
-                        <div class="col l4 offset-l2 s12">
-                            <h5 class="white-text">Sponsor Sites</h5>
-                            <ul>
-                                <li>
-                                    <a class="grey-text text-lighten-3" href="https://crayola.com" target="_blank">Crayola</a>
-                                </li>
-                                <li>
-                                    <a class="grey-text text-lighten-3" href="www.michaels.com" target="_blank">Michaels</a>
-                                </li>
-                                <li>
-                                    <a class="grey-text text-lighten-3" href="https://hobbylobby.com" target="_blank">Hobby Lobby</a>
-                                </li>
-                                <li>
-                                    <a class="grey-text text-lighten-3" href="https://nationalgeographic.com" target="_blank">National Geographic Little Kids</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        © 2018 Junior Picasso
-
-                    </div>
-                </div>
-            </footer>
-
-
-            <!-- end of container div-->
         </div>
+        <!--FOOTER-->
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">A Message From Our Sponsors</h5>
+                        <p class="grey-text text-lighten-4">"Junior Picasso's is a fun, innovate way to connect with your children and promote creativity!"</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Sponsor Sites</h5>
+                        <ul>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="https://crayola.com" target="_blank">Crayola</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="www.michaels.com" target="_blank">Michaels</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="https://hobbylobby.com" target="_blank">Hobby Lobby</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="https://nationalgeographic.com" target="_blank">National Geographic Little Kids</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Junior Picasso
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- end of container div-->
+    </div>
 
 
 
-        <!--JavaScript at end of body for optimized loading-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
-        <script type="text/javascript">
-            $('.carousel.carousel-slider').carousel({
-                fullWidth: true,
-                indicators: true
-            });
-
-        </script>
+    <script type="text/javascript">
+        $('.carousel.carousel-slider').carousel({
+            fullWidth: true,
+            indicators: true
+        });
+        var q = "Testing google search";
+        document.getElementById('search').onclick = function () {
+            window.open('http://google.com/search?q=' + q);
+        };
+    </script>
 
 </body>
 
