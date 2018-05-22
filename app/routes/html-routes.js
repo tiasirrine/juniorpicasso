@@ -75,8 +75,7 @@ module.exports = function(app) {
         console.log(err);
       } else {
         console.log("success");
-        res.send("/vote");
-        window.location.replace("/vote");
+        res.sendFile(path.join(__dirname, "../public/vote.html"));
       }
     });
   });
