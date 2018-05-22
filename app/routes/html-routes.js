@@ -55,7 +55,7 @@ module.exports = function(app) {
 
   //Post photo uploads
   app.post("/vote", function(req, res) {
-      var upload = multer({
+    var upload = multer({
       storage: storage,
       fileFilter: function(req, file, callback) {
         var ext = path.extname(file.originalname);
@@ -75,7 +75,8 @@ module.exports = function(app) {
         console.log(err);
       } else {
         console.log("success");
-        res.send("File is uploaded");
+        res.send("/vote");
+        window.location.replace("/vote");
       }
     });
   });
