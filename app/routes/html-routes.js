@@ -12,32 +12,32 @@ var path = require("path");
 module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // index route loads index.html (home page)
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // add route loads the add.html page, where users can enter new books to the db
+  // how-it-works route loads the how-it-works.html page, where users can read about how Junior Picasso works
   app.get("/how-it-works", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/how-it-works.html"));
   });
 
-  // all route loads the all.html page, where all books in the db are displayed
+  // login route loads the login.html page, where current Members login
   app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // short route loads the short.html page, where short books in the db are displayed
+  // register route loads the register.html page, where new customers register as Members
   app.get("/register", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/register.html"));
   });
 
-  // long route loads the long.html page, where long books in the db are displayed
+  // search route loads the search.html page, where Members can seacrch for information on artists via API
   app.get("/search", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
-  // long route loads the long.html page, where long books in the db are displayed
+  // vote route loads the vote.html page, where Members upload pictures and vote on uploaded pictures
   app.get("/vote", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/vote.html"));
   });
@@ -53,8 +53,9 @@ module.exports = function(app) {
     }
   });
 
+  //Post photo uploads
   app.post("/vote", function(req, res) {
-    var upload = multer({
+      var upload = multer({
       storage: storage,
       fileFilter: function(req, file, callback) {
         var ext = path.extname(file.originalname);
@@ -74,7 +75,7 @@ module.exports = function(app) {
         console.log(err);
       } else {
         console.log("success");
-        res.end("File is uploaded");
+        res.send("File is uploaded");
       }
     });
   });

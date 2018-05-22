@@ -20,7 +20,8 @@ $("#add-btn").on("click", function(event) {
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
-      console.log(data);
+
+      window.location.replace("\login?email=" + data)
     });
 
   // Empty each input box by replacing the value with an empty string
